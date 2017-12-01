@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp229-Assign03", "Comp229-Assign03\Comp229-Assign03.csproj", "{99852D8C-7474-4C84-8A18-3F92D1F70F7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolHomePage", "Comp229-Assign03\SchoolHomePage.csproj", "{99852D8C-7474-4C84-8A18-3F92D1F70F7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
