@@ -14,10 +14,11 @@
         <h1 class="text-center">Welcome to Suwon College!</h1>
         <div class="col-md-6">
             <h2>Current Student's list</h2>
-            <asp:Button ID="btnSqlCommand" runat="server" Text="입력예시문 실행" OnClick="btnSqlCommand_Click" />
-            <hr />
-            <asp:Label ID="lblDisplay" runat="server"></asp:Label>
-
+                <div>
+                    <asp:Literal ID="tblOutput" runat="server"></asp:Literal>
+                    <hr />
+                    
+                </div>
         </div>
         <div class="col-md-6">
             <h2>Registration</h2>
