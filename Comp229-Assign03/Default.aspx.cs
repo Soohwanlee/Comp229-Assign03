@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Comp229_Assign03.Models;
 
 namespace Comp229_Assign03
 {
@@ -15,32 +16,14 @@ namespace Comp229_Assign03
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Title = "SH College";
-
-            
-            if(!Page.IsPostBack)
-            {
                 DisplayData();
-            }
-           
         }
 
-        /*
-        protected void btnSqlConnection_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection();
-
-            //con.ConnectionString = "server=(LocalDb)\\MSSQLLocalDB;" + "database=Comp229Assign03;";
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con.Open();
-
-            lblDisplay.Text = "데이터베이스 연결성공";
-            con.Close();
-        }
-        */
-
-        
+         
         private void DisplayData()
         {
+
+            String strSql = "SELECT * FROM Comp229Assign03.[dbo].Students ORDER BY StudentID     DESC";
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings[
                 "ConnectionString"].ConnectionString;
@@ -48,27 +31,51 @@ namespace Comp229_Assign03
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = @"Select FirstMidName, LastName From Students";
+            cmd.CommandText = strSql;
             cmd.CommandType = CommandType.Text;
 
             SqlDataReader dr = cmd.ExecuteReader();
 
-            string strOutput = "<table border=\"1\">"+"<tr><td>Name</tr>" ;
+            this.GridView1.DataSource = dr;
+            this.GridView1.DataBind();
 
-            while (dr.Read())
-            {
-                strOutput += $"<tr><td>{dr["FirstMidName"]}</td>" +
-                    $"<td>{dr["LastName"]}</td></tr>";
-            }
 
-            strOutput += "</table>";
+        }
 
-            dr.Close();
+        protected void btnWrite_Click(object sender, EventArgs e)
+        {
+            btnWrite.Enabled = false;
 
-            tblOutput.Text = strOutput;
+            string FirstName = this.txtFname.Text;
+            string LastName = this.txtLname.Text;
+
+            string strSql = "INSERT into Comp229Assign03.[dbo].Students (LastName, FirstMidName, EnrollmentDate) Values('" + FirstName + "','" + LastName + "','" + DateTime.Now + "')";
+
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            con.Open();
+
+            SqlCommand insert = new SqlCommand();
+            //SqlCommand cmd = new SqlCommand("WriteStudentInput", con);
+            insert.Connection = con;
+            /*
+            insert.CommandText = @"
+            SET IDENTITY_INSERT Students ON
+            insert into Students Values(@StudentID, @FirstMidName, @LastName, GetDate()) 
+            SET IDENTITY_INSERT Students OFF       
+            ";
+            insert.Parameters.AddWithValue("@StudentID", FirstInput.StudentID);
+            insert.Parameters.AddWithValue("@FirstMidName", FirstInput.FirstMidName);
+            insert.Parameters.AddWithValue("@LastName", FirstInput.LastName);
+            */
+            //insert.Parameters.AddWithValue("@EnrollmentDate", FirstInput.EnrollmentDate);
+            insert.CommandText = strSql;
+            insert.CommandType = CommandType.Text;
+
+            insert.ExecuteNonQuery();
 
             con.Close();
-
+            Response.Redirect("./Default.aspx");
         }
        
 

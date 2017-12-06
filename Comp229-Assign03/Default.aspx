@@ -15,19 +15,21 @@
         <div class="col-md-6">
             <h2>Current Student's list</h2>
                 <div>
-                    <asp:Literal ID="tblOutput" runat="server"></asp:Literal>
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
                     <hr />
-                    
                 </div>
         </div>
+
         <div class="col-md-6">
+
             <h2>Registration</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
+            First Name : <asp:TextBox ID="txtFname" runat="server"></asp:TextBox><br />
+            Last Name : <asp:TextBox ID="txtLname" runat="server"></asp:TextBox><br />
+        <asp:Button CssClass="btn btn-info" ID="btnWrite" runat="server" Text="Submit" OnClick="btnWrite_Click" />
+        <hr />
+            <asp:Label ID="lblDisplay" runat="server"></asp:Label>
+                    
         </div>
 
     </div>
