@@ -15,7 +15,23 @@
         <div class="col-md-6">
             <h2>Current Student's list</h2>
                 <div>
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField HeaderText="Student Number" DataField="StudentID" />
+
+                    <asp:HyperLinkField HeaderText="First Name" 
+                        DataTextField="FirstMidName" 
+                        DataNavigateUrlFormatString="Students.aspx?StudentID={0}"
+                        DataNavigateUrlFields="StudentID"
+                        />
+                        
+                    <asp:BoundField HeaderText="Last Name" DataField="LastName" />
+                    <asp:TemplateField HeaderText="Enrollment Date">
+                        <ItemTemplate>
+                            <%# Eval("EnrollmentDate")%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
             </asp:GridView>
                     <hr />
                 </div>

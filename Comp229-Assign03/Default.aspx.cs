@@ -34,12 +34,13 @@ namespace Comp229_Assign03
             cmd.CommandText = strSql;
             cmd.CommandType = CommandType.Text;
 
-            SqlDataReader dr = cmd.ExecuteReader();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            da.Fill(dataset, "Comp229Assign03.[dbo].Students");
 
-            this.GridView1.DataSource = dr;
+            this.GridView1.DataSource = dataset;
             this.GridView1.DataBind();
-
-
+            con.Close();
         }
 
         protected void btnWrite_Click(object sender, EventArgs e)
