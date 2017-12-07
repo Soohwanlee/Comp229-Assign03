@@ -14,7 +14,69 @@ namespace Comp229_Assign03
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.Title = "SH College";
+            DisplayData();
+        }
 
+        private void DisplayData()
+        {
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings[
+                "ConnectionString"].ConnectionString;
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("CourseID", SqlDbType.Int);
+            cmd.Parameters["CourseID"].Value = Convert.ToInt32(Request["CourseID"]);
+            String strSql =
+                string.Format("SELECT * FROM Comp229Assign03.[dbo].Students WHERE StudentID IN (SELECT s.StudentID FROM Comp229Assign03.[dbo].Students S LEFT JOIN Comp229Assign03.[dbo].Enrollments E ON S.StudentID = E.StudentID where e.CourseID = '{0}')"
+                    , Request["CourseID"]);
+
+            cmd.CommandText = strSql;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            da.Fill(dataset, "Comp229Assign03.[dbo].Students");
+
+            this.GridView4.DataSource = dataset;
+            this.GridView4.DataBind();
+
+            con.Close();
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            btnAdd.Enabled = false;
+
+            string StdID = this.txtStudnetID.Text;
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings[
+                "ConnectionString"].ConnectionString;
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("CourseID", SqlDbType.Int);
+            cmd.Parameters["CourseID"].Value = Convert.ToInt32(Request["CourseID"]);
+            
+            String strSql =
+                string.Format("INSERT into Comp229Assign03.[dbo].Enrollments (CourseID, StudentID, Grade) Values('{0}','{1}','0')"
+                    , Request["CourseID"], StdID);
+            
+            cmd.CommandText = strSql;
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            Response.Redirect(Request.Url.ToString());
         }
     }
 }

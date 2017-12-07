@@ -44,7 +44,6 @@
             Last Name : <asp:TextBox ID="txtLname" runat="server"></asp:TextBox><br />
         <asp:Button CssClass="btn btn-info" ID="btnWrite" runat="server" Text="Submit" OnClick="btnWrite_Click" />
         <hr />
-            <asp:Label ID="lblDisplay" runat="server"></asp:Label>
                     
         </div>
 
