@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" runat="server" href="~/Landingpage">
+                    <a class="navbar-brand" runat="server" href="~/Default">
                         <img class="img-rounded" alt="Brand" src="/Assets/images/logo.png" width="70" height="35">
                         <!--This logo image is from https://dribbble.com/shots/2847439-S-Hilton-Logo -->
                     </a>

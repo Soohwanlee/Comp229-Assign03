@@ -16,7 +16,7 @@ namespace Comp229_Assign03
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Title = "SH College";
-                DisplayData();
+            DisplayData();
         }
 
          
@@ -57,19 +57,9 @@ namespace Comp229_Assign03
             con.Open();
 
             SqlCommand insert = new SqlCommand();
-            //SqlCommand cmd = new SqlCommand("WriteStudentInput", con);
+
             insert.Connection = con;
-            /*
-            insert.CommandText = @"
-            SET IDENTITY_INSERT Students ON
-            insert into Students Values(@StudentID, @FirstMidName, @LastName, GetDate()) 
-            SET IDENTITY_INSERT Students OFF       
-            ";
-            insert.Parameters.AddWithValue("@StudentID", FirstInput.StudentID);
-            insert.Parameters.AddWithValue("@FirstMidName", FirstInput.FirstMidName);
-            insert.Parameters.AddWithValue("@LastName", FirstInput.LastName);
-            */
-            //insert.Parameters.AddWithValue("@EnrollmentDate", FirstInput.EnrollmentDate);
+
             insert.CommandText = strSql;
             insert.CommandType = CommandType.Text;
 

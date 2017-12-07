@@ -28,7 +28,7 @@
                     <asp:BoundField HeaderText="Last Name" DataField="LastName" />
                     <asp:TemplateField HeaderText="Enrollment Date">
                         <ItemTemplate>
-                            <%# Eval("EnrollmentDate")%>
+                            <%# ((DateTime)Eval("EnrollmentDate")).ToString("yyyy-MM-dd")%>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
