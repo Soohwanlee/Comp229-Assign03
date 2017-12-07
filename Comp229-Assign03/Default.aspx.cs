@@ -19,7 +19,7 @@ namespace Comp229_Assign03
             DisplayData();
         }
 
-         
+
         private void DisplayData()
         {
 

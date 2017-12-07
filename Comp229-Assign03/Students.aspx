@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Students.aspx.cs" Inherits="Comp229_Assign03.Students" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Students.aspx.cs" Inherits="Comp229_Assign03.Students" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -27,11 +27,15 @@
             <div class="col-md-6">
 
                 <h2>Course Information</h2>
-                 <div>
+                <div>
                     <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField HeaderText="Cousre Number" DataField="CourseID" />
-                            <asp:BoundField HeaderText="Title" DataField="Title" />
+
+                            <asp:HyperLinkField HeaderText="Title"
+                                DataTextField="Title"
+                                DataNavigateUrlFormatString="Course.aspx?CourseID={0}"
+                                DataNavigateUrlFields="CourseID" />
                             <asp:BoundField HeaderText="Credit" DataField="Credits" />
                         </Columns>
                     </asp:GridView>
@@ -40,6 +44,8 @@
             </div>
 
         </div>
+        <asp:LinkButton href="/Update" CssClass="btn btn-info" runat="server" Text="Update Info" />
+        <asp:Button CssClass="btn btn-info" ID="btnDelete" runat="server" Text="Delete Info" OnClick="btnDelete_Click" />
 
     </div>
 </asp:Content>

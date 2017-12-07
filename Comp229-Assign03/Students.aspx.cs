@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using Comp229_Assign03.Models;
 
 namespace Comp229_Assign03
 {
@@ -17,6 +16,7 @@ namespace Comp229_Assign03
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.Title = "Student's Info";
             DisplayData();
         }
 
@@ -60,6 +60,32 @@ namespace Comp229_Assign03
 
             con.Close();
         }
-        
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+
+            String strSql = string.Format("DELETE from Comp229Assign03.[dbo].Enrollments where StudentID = '{0}' DELETE from Comp229Assign03.[dbo].Students where StudentID = '{0}'"
+                    , Request["StudentID"]);
+
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            con.Open();
+
+            SqlCommand insert = new SqlCommand();
+
+            insert.Connection = con;
+
+            insert.CommandText = strSql;
+            insert.CommandType = CommandType.Text;
+
+            insert.ExecuteNonQuery();
+
+            con.Close();
+            Response.Redirect("./Default.aspx");
+        }
+
+
+
     }
-}//"SELECT * FROM Comp229Assign03.[dbo].Students S LEFT JOIN Comp229Assign03.[dbo].Enrollments E ON S.StudentID=E.StudentID where S.StudentID='{0}' ORDER BY S.StudentID DESC"
+}
