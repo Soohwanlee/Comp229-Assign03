@@ -49,6 +49,12 @@ namespace Comp229_Assign03
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
+                Page.ClientScript.RegisterClientScriptBlock(
+                    this.GetType(), "alertMessage", "<script>alert('Success!!');</script>");
+            }
+
             btnAdd.Enabled = false;
 
             string StdID = this.txtStudnetID.Text;
@@ -81,6 +87,12 @@ namespace Comp229_Assign03
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
+                Page.ClientScript.RegisterClientScriptBlock(
+                    this.GetType(), "alertMessage", "<script>alert('Success!!');</script>");
+            }
+
             btnDelete.Enabled = false;
             string StdID = this.txtStudnetID.Text;
 

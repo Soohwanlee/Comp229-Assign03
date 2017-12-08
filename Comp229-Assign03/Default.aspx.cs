@@ -45,6 +45,12 @@ namespace Comp229_Assign03
 
         protected void btnWrite_Click(object sender, EventArgs e)
         {
+            if(Page.IsValid)
+            {
+                Page.ClientScript.RegisterClientScriptBlock(
+                    this.GetType(),"alertMessage","<script>alert('Added to Student List');</script>");
+            }
+
             btnWrite.Enabled = false;
 
             string FirstName = this.txtFname.Text;

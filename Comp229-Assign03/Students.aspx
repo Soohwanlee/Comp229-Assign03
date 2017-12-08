@@ -31,7 +31,7 @@
                         <SortedDescendingHeaderStyle BackColor="#00547E" />
                     </asp:GridView>
                         </center>
-                    <hr />
+
                 </div>
             </div>
 
@@ -61,13 +61,15 @@
                         <SortedDescendingHeaderStyle BackColor="#00547E" />
                     </asp:GridView>
 
-                    
-                    <asp:Button CssClass="btn btn-info" ID="btnUpdate" runat="server" Text="Update Info" OnClick="btnUpdate_Click" />
-                    <asp:Button CssClass="btn btn-danger" ID="btnDelete" runat="server" Text="Delete Info" OnClick="btnDelete_Click" />
+                    <br />
+                   
                     </center>
                 </div>
             </div>
-            
+            <center>
+             <asp:Button CssClass="btn btn-info" ID="btnUpdate" runat="server" Text="Update Info" OnClick="btnUpdate_Click" />
+             <asp:Button CssClass="btn btn-danger" ID="btnDelete" runat="server" Text="Delete Info" OnClick="btnDelete_Click" OnClientClick="javascript:return confirm('Are you sure?');" />
+                </center>
         </div>
 
 

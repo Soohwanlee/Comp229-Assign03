@@ -53,10 +53,14 @@
             <h2 style="text-align:center">Registration</h2>
             <center>
             <div style="padding:5px">
-            First Name : <asp:TextBox ID="txtFname" runat="server"></asp:TextBox><br />
+            First Name : <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valFirstName" runat="server" ControlToValidate="txtFname" Display="Dynamic" ErrorMessage="Please input First Name!"></asp:RequiredFieldValidator>
+                <br />
             </div>
             <div style="padding:5px">
-            Last Name : <asp:TextBox ID="txtLname" runat="server"></asp:TextBox><br />
+            Last Name : <asp:TextBox ID="txtLname" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valLastName" runat="server" ControlToValidate="txtLname" Display="Dynamic" ErrorMessage="Please input Last Name!"></asp:RequiredFieldValidator>
+                <br />
             <br />
             </div>
         <asp:Button CssClass="btn btn-info" ID="btnWrite" runat="server" Text="Submit" OnClick="btnWrite_Click" />
