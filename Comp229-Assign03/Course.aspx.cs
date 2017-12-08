@@ -78,5 +78,30 @@ namespace Comp229_Assign03
 
             Response.Redirect(Request.Url.ToString());
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = false;
+            string StdID = this.txtStudnetID.Text;
+
+            String strSql = string.Format("DELETE from Comp229Assign03.[dbo].Enrollments where StudentID = '{0}' and CourseID = '{1}'"
+                    , StdID, Request["CourseID"]);
+
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = con;
+
+            cmd.CommandText = strSql;
+            cmd.CommandType = CommandType.Text;
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+            Response.Redirect(Request.Url.ToString());
+        }
     }
 }

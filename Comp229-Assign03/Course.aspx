@@ -17,6 +17,7 @@
                                     <%# ((DateTime)Eval("EnrollmentDate")).ToString("yyyy-MM-dd")%>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                     
                         </Columns>
                     </asp:GridView>
                     <hr />
@@ -27,8 +28,9 @@
 
             <h2>Add a student for this course</h2>
             Student ID : <asp:TextBox ID="txtStudnetID" runat="server"></asp:TextBox><br />
+            <br />
         <asp:Button CssClass="btn btn-info" ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click"/>
-        <hr />
+        <asp:Button CssClass="btn btn-info" ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click"/>
 
         </div>
 

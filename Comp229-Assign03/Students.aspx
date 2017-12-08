@@ -44,7 +44,7 @@
             </div>
 
         </div>
-        <asp:LinkButton href="/Update" CssClass="btn btn-info" runat="server" Text="Update Info" />
+        <asp:Button CssClass="btn btn-info" ID="btnUpdate" runat="server" Text="Update Info" OnClick="btnUpdate_Click"/>
         <asp:Button CssClass="btn btn-info" ID="btnDelete" runat="server" Text="Delete Info" OnClick="btnDelete_Click" />
 
     </div>

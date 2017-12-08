@@ -85,7 +85,12 @@ namespace Comp229_Assign03
             Response.Redirect("./Default.aspx");
         }
 
-
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string url;
+            url = "Update.aspx?StudentID=" + Request["StudentID"];
+            Response.Redirect(url);
+        }
 
     }
 }
