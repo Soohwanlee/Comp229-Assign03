@@ -4,18 +4,18 @@
     <br />
     <br />
     <div class="container-fluid">
-    <div class="row">
-        <!--I got this image from picture of the Seoul university's hospital  -->
-        <img src="Assets/images/school.jpg" alt="School" class="img-rounded img-responsive center-block">
-    </div>
+        <div class="row">
+            <!--I got this image from picture of the Seoul university's hospital  -->
+            <img src="Assets/images/school.jpg" alt="School" class="img-rounded img-responsive center-block">
+        </div>
     </div>
 
     <div class="row">
         <h1 class="text-center">Welcome to Suwon College!</h1>
         <div class="col-md-6">
-            <h2 style="text-align:center">Current Student's list</h2>
-                <div class="center-block">
-                    <center>
+            <h2 style="text-align: center">Current Student's list</h2>
+            <div class="center-block">
+                <center>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                 <Columns>
                     <asp:BoundField HeaderText="Student Number" DataField="StudentID" />
@@ -44,13 +44,13 @@
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
                         </center>
-              
-                </div>
+
+            </div>
         </div>
 
         <div class="col-md-6">
 
-            <h2 style="text-align:center">Registration</h2>
+            <h2 style="text-align: center">Registration</h2>
             <center>
             <div style="padding:5px">
             First Name : <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
@@ -64,8 +64,6 @@
             <br />
             </div>
         <asp:Button CssClass="btn btn-info" ID="btnWrite" runat="server" Text="Submit" OnClick="btnWrite_Click" />
-    
-                    
         </div>
         </center>
     </div>

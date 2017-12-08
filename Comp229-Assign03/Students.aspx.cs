@@ -16,7 +16,7 @@ namespace Comp229_Assign03
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Page.Title = "Student's Info";
+            Page.Title = "Student's Infomation";
             DisplayData();
         }
 

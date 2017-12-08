@@ -39,12 +39,14 @@
 
                 <h2 style="text-align: center">Add a student for this course</h2>
                 <center>
-            Student ID : <asp:TextBox ID="txtStudnetID" runat="server"></asp:TextBox>
+                    Student ID : <asp:TextBox ID="txtStudnetID" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="valAddion" runat="server" ControlToValidate="txtStudnetID" Display="Dynamic" ErrorMessage="Please input Student ID!"></asp:RequiredFieldValidator>
                     <br />
-            <br />
-        <asp:Button CssClass="btn btn-info" ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click"/>
-        <asp:Button CssClass="btn btn-danger" ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click"/>
+                    <br />
+                         <asp:Button CssClass="btn btn-info" ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click"/>
+                         <asp:Button CssClass="btn btn-danger" ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click"/>
+
+
             </center>
             </div>
 

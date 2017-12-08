@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="Comp229_Assign03.Update" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div class="row">
-                <h1 class="text-center">Update Student's Information</h1>
-                <div>
-                    <center>
+            <h1 class="text-center">Update Student's Information</h1>
+            <div>
+                <center>
 
                     <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" DataKeyNames="StudentID" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                         <Columns>
@@ -32,7 +33,7 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
                         </center>
-                </div>
+            </div>
 
         </div>
 

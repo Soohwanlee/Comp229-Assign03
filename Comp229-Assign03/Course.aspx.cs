@@ -14,7 +14,7 @@ namespace Comp229_Assign03
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Page.Title = "SH College";
+            Page.Title = "Course Information";
             DisplayData();
         }
 
@@ -70,11 +70,11 @@ namespace Comp229_Assign03
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("CourseID", SqlDbType.Int);
             cmd.Parameters["CourseID"].Value = Convert.ToInt32(Request["CourseID"]);
-            
+
             String strSql =
                 string.Format("INSERT into Comp229Assign03.[dbo].Enrollments (CourseID, StudentID, Grade) Values('{0}','{1}','0')"
                     , Request["CourseID"], StdID);
-            
+
             cmd.CommandText = strSql;
             cmd.CommandType = CommandType.Text;
 
