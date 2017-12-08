@@ -50,7 +50,7 @@ namespace Comp229_Assign03
             string FirstName = this.txtFname.Text;
             string LastName = this.txtLname.Text;
 
-            string strSql = "INSERT into Comp229Assign03.[dbo].Students (LastName, FirstMidName, EnrollmentDate) Values('" + FirstName + "','" + LastName + "','" + DateTime.Now + "')";
+            string strSql = "INSERT into Comp229Assign03.[dbo].Students (LastName, FirstMidName, EnrollmentDate) Values('" + LastName + "','" + FirstName + "','" + DateTime.Now + "')";
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 

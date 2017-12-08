@@ -6,9 +6,10 @@
         <div class="row">
             <h1 class="text-center">Student's Information</h1>
             <div class="col-md-6">
-                <h2>Personal Information</h2>
+                <h2 style="text-align: center">Personal Information</h2>
                 <div>
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false">
+                    <center>
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                         <Columns>
                             <asp:BoundField HeaderText="Student Number" DataField="StudentID" />
                             <asp:BoundField HeaderText="First Name" DataField="FirstMidName" />
@@ -19,16 +20,27 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
                     </asp:GridView>
+                        </center>
                     <hr />
                 </div>
             </div>
 
             <div class="col-md-6">
 
-                <h2>Course Information</h2>
+                <h2 style="text-align: center">Course Information</h2>
                 <div>
-                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="false">
+                    <center>
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                         <Columns>
                             <asp:BoundField HeaderText="Cousre Number" DataField="CourseID" />
 
@@ -38,14 +50,26 @@
                                 DataNavigateUrlFields="CourseID" />
                             <asp:BoundField HeaderText="Credit" DataField="Credits" />
                         </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
                     </asp:GridView>
-                    <hr />
+
+                    
+                    <asp:Button CssClass="btn btn-info" ID="btnUpdate" runat="server" Text="Update Info" OnClick="btnUpdate_Click" />
+                    <asp:Button CssClass="btn btn-danger" ID="btnDelete" runat="server" Text="Delete Info" OnClick="btnDelete_Click" />
+                    </center>
                 </div>
             </div>
-
+            
         </div>
-        <asp:Button CssClass="btn btn-info" ID="btnUpdate" runat="server" Text="Update Info" OnClick="btnUpdate_Click"/>
-        <asp:Button CssClass="btn btn-info" ID="btnDelete" runat="server" Text="Delete Info" OnClick="btnDelete_Click" />
+
 
     </div>
 </asp:Content>

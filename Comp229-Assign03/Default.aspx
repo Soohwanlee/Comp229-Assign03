@@ -13,9 +13,10 @@
     <div class="row">
         <h1 class="text-center">Welcome to Suwon College!</h1>
         <div class="col-md-6">
-            <h2>Current Student's list</h2>
-                <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+            <h2 style="text-align:center">Current Student's list</h2>
+                <div class="center-block">
+                    <center>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                 <Columns>
                     <asp:BoundField HeaderText="Student Number" DataField="StudentID" />
 
@@ -32,21 +33,37 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <FooterStyle BackColor="White" ForeColor="#000066" />
+                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                <RowStyle ForeColor="#000066" />
+                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
-                    <hr />
+                        </center>
+              
                 </div>
         </div>
 
         <div class="col-md-6">
 
-            <h2>Registration</h2>
+            <h2 style="text-align:center">Registration</h2>
+            <center>
+            <div style="padding:5px">
             First Name : <asp:TextBox ID="txtFname" runat="server"></asp:TextBox><br />
+            </div>
+            <div style="padding:5px">
             Last Name : <asp:TextBox ID="txtLname" runat="server"></asp:TextBox><br />
+            <br />
+            </div>
         <asp:Button CssClass="btn btn-info" ID="btnWrite" runat="server" Text="Submit" OnClick="btnWrite_Click" />
-        <hr />
+    
                     
         </div>
-
+        </center>
     </div>
 
 </asp:Content>
